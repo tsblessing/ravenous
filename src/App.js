@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import BusinessList from './components/BusinessList/BusinessList';
 import SearchBar from './components/SearchBar/SearchBar';
+import Business from './components/Business/Business';
 
 let business = {
   imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
@@ -24,7 +25,7 @@ const businesses = [
   business
 ];
 
-export default class App extends Component {
+ class App extends Component {
   render() {
     return (
       <div className="App">
@@ -35,3 +36,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
