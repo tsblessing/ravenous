@@ -12,7 +12,7 @@ const Yelp = {
     }).then(response => {
       return response.json();
     }).then(jsonResponse => {
-      accessToken = jsonResponse.access_Token;
+      accessToken = jsonResponse.access_token;
     })
   },
 
@@ -26,20 +26,18 @@ const Yelp = {
         return response.json();
       }).then(jsonResponse => {
         if (jsonResponse.businesses) {
-          return jsonResponse.businesses.map(business => {
-            return {
-              id: business.id,
-              imageSrc: business.image_url,
-              name: business.name,
-              address: business.location.address,
-              city: business.location.city,
-              state: business.location.state,
-              zipCode: business.location.zip_code,
-              category: business.categories[0].title,
-              rating: business.rating,
-              reviewCount: business.review_count
-            }
-          })
+          return jsonResponse.businesses.map(business => ({
+            id: business.id,
+            imageSrc: business.image_url,
+            name: business.name,
+            address: business.location.address,
+            city: business.location.city,
+            state: business.location.state,
+            zipCode: business.location.zip_code,
+            category: business.categories[0].title,
+            rating: business.rating,
+            reviewCount: business.review_count
+          }));
         }
       })
     })
